@@ -23,7 +23,7 @@ Mục tiêu bị tấn công là một webserver có domain **imreallynotbatman.
       - **fortigate_utm:** Log của firewall.
       - **iis:** Log của webserver IIS.
 
-  ![Hình ảnh về các nguồn Log](1. Reconnaissance Phase/images/Picture1.png)
+  ![Hình ảnh về các nguồn Log](assets/images_phase1/Picture1.png)
 
 ### 2. Xác định các địa chỉ IP đáng ngờ
 Chúng ta cần xác định các địa chỉ IP đang cố gắng thực hiện hoạt động do thám trên webserver. Hãy bắt đầu với Log chứa traffic truy cập HTTP đến webserver **"stream:http"**.
@@ -34,7 +34,7 @@ Chúng ta cần xác định các địa chỉ IP đang cố gắng thực hiệ
       - **40.80.148.42** (93.402%)
       - **23.22.63.114** (6.598%)
 
-  ![Hình ảnh về các IP đáng ngờ](1. Reconnaissance Phase/images/Picture2.png)
+  ![Hình ảnh về các IP đáng ngờ](assets/images_phase1/Picture2.png)
 
 ### 3. Kiểm tra dấu hiệu tấn công từ IP đáng ngờ
 Tiếp theo, chúng ta cần xem xét các dấu hiệu tấn công từ từng IP để xác định liệu chúng có phải là IP malicious hay không.
@@ -63,7 +63,7 @@ Tiếp theo, chúng ta thu hẹp phạm vi và đào sâu hơn các hoạt độ
 - **Truy vấn:** `index=botsv1 imreallynotbatman.com src=40.80.148.42 sourcetype=suricata`
     - **Kết quả:** Phát hiện các alert về tấn công XSS, SQL Injection và đặc biệt là tấn công khai thác lỗ hổng **CVE-2014-6271**.
 
-  ![Hình ảnh về alert của Suricata](1. Reconnaissance Phase/images/Picture3.png)
+  ![Hình ảnh về alert của Suricata](assets/images_phase1/Picture3.png)
 
 ## III. Trả lời các câu hỏi
 
@@ -72,27 +72,27 @@ Tiếp theo, chúng ta thu hẹp phạm vi và đào sâu hơn các hoạt độ
    - **Truy vấn:** `index=botsv1 imreallynotbatman.com src=40.80.148.42 sourcetype=suricata`
      - **Kết quả:** Phát hiện CVE-2014-6271 trong các alert của Suricata.
 
-  ![Hình ảnh về CVE value](1. Reconnaissance Phase/images/Picture4.png)
+  ![Hình ảnh về CVE value](assets/images_phase1/Picture4.png)
 
 2. **What is the CMS our web server is using?**
    - **Joomla**
    - **Truy vấn:** `index=botsv1 imreallynotbatman.com sourcetype="stream:http"`
      - **Kết quả:** Phát hiện các URL liên quan đến CMS Joomla.
 
-  ![Hình ảnh về CMS](1. Reconnaissance Phase/images/Picture5.png)
+  ![Hình ảnh về CMS](assets/images_phase1/Picture5.png)
 
 3. **What is the web scanner, the attacker used?**
    - **Acunetix**
    - **Truy vấn:** `index=botsv1 imreallynotbatman.com sourcetype="stream:http"`
      - **Kết quả:** Dấu hiệu của công cụ quét lỗ hổng **Acunetix** trong **http_user_agent**.
 
-  ![Hình ảnh về web scanner](1. Reconnaissance Phase/images/Picture6.png)
+  ![Hình ảnh về web scanner](assets/images_phase1/Picture6.png)
 
 4. **What is the IP address of the server imreallynotbatman.com?**
    - **192.168.250.70**
    - **Truy vấn:** `index=botsv1 imreallynotbatman.com sourcetype="stream:http" http_user_agent="\";print(md5(acunetix_wvs_security_test));$a=\""`
 
-  ![Hình ảnh về địa chỉ IP server](1. Reconnaissance Phase/images/Picture7.png)
+  ![Hình ảnh về địa chỉ IP server](assets/images_phase1/Picture7.png)
 
 ## IV. Kết luận
 Sau khi hoàn thành giai đoạn trinh sát, chúng ta đã thu thập được các thông tin quan trọng về mục tiêu và các kẻ tấn công:
