@@ -24,6 +24,8 @@ Mục tiêu bị tấn công là một webserver có domain **imreallynotbatman.
       - **iis:** Log của webserver IIS.
 
   ![Hình ảnh về các nguồn Log]("assets/images_phase1/Picture1.png")
+  ![Description of Image](assets/images_phase1/Picture1.png)
+
 
 ### 2. Xác định các địa chỉ IP đáng ngờ
 Chúng ta cần xác định các địa chỉ IP đang cố gắng thực hiện hoạt động do thám trên webserver. Hãy bắt đầu với Log chứa traffic truy cập HTTP đến webserver **"stream:http"**.
