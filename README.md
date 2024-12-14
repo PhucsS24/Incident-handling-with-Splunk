@@ -2,7 +2,7 @@
 
 ## A. Kịch bản:
 - Một tổ chức doanh nghiệp lớn **Wayne Enterprises** gần đây đã phải đối mặt với một cuộc tấn công mạng, trong đó những kẻ tấn công đã đột nhập vào mạng của họ, tìm đường đến máy chủ web và đã thành công trong việc phá hoại trang web [http://www.imreallynotbatman.com](http://www.imreallynotbatman.com).
-- Trang web của họ hiện đang hiển thị logo của những kẻ tấn công với thông báo **“OUR SITE HAS BEEN DEFACED”**, như hình bên dưới:
+- Trang web của họ hiện đang hiển thị logo của những kẻ tấn công với thông báo **“YOUR SITE HAS BEEN DEFACED”**, như hình bên dưới:
 
 ![Defaced Website](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/assets/Picture0.png) <!-- Thay # bằng đường dẫn hình ảnh nếu có -->
 
