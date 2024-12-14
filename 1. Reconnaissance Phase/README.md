@@ -41,7 +41,7 @@ Tiếp theo, chúng ta cần xem xét các dấu hiệu tấn công từ từng 
 
 #### Kiểm tra IP **40.80.148.42**
 - **Truy vấn:** `index=botsv1 imreallynotbatman.com sourcetype=stream:http src_ip="40.80.148.42"`
-   **Giải thích:** truy vấn tìm kiếm các sự kiện http truy cập đến “imreallynotbatman.com” từ source ip “40.80.148.42” trong Log “stream:http”.
+    - **Giải thích:** truy vấn tìm kiếm các sự kiện http truy cập đến “imreallynotbatman.com” từ source ip “40.80.148.42” trong Log “stream:http”.
     - **Kết quả:**
         - **form_data:** Phát hiện thực hiện cuộc tấn công khai thác lỗ hổng web như XSS, RCE, SQL Injection, Command Injection, Path Traversal, External Resource Loading.
         - **http_user_agent:** Phát hiện các hoạt động đáng ngờ chứa payload tấn công như `$(nslookup 0GIaVBMt)`, `${@print(md5(acunetix_wvs_security_test))}`, `!(()&&!|*|*|,…`
@@ -51,7 +51,7 @@ Tiếp theo, chúng ta cần xem xét các dấu hiệu tấn công từ từng 
 
 #### Kiểm tra IP **23.22.63.114**
 - **Truy vấn:** `index=botsv1 imreallynotbatman.com sourcetype=stream:http src_ip="23.22.63.114"`
-   **Giải thích:** truy vấn tìm kiếm các sự kiện http truy cập đến “imreallynotbatman.com” từ source ip “23.22.63.114” trong Log “stream:http”.
+    - **Giải thích:** truy vấn tìm kiếm các sự kiện http truy cập đến “imreallynotbatman.com” từ source ip “23.22.63.114” trong Log “stream:http”.
     - **Kết quả:**
         - **uri:** Địa chỉ tấn công brute force là `/joomla/administrator/index.php`.
         - **http_user_agent:** `"Python-urllib/2.7"` – thư viện của Python tự động gửi các HTTP request để thực hiện tấn công brute force.
@@ -63,7 +63,7 @@ Tiếp theo, chúng ta cần xem xét các dấu hiệu tấn công từ từng 
 Tiếp theo, chúng ta thu hẹp phạm vi và đào sâu hơn các hoạt động khai thác lỗ hổng web từ IP **40.80.148.42**.
 
 - **Truy vấn:** `index=botsv1 imreallynotbatman.com src=40.80.148.42 sourcetype=suricata`
-    **Giải thích:** Truy vấn tìm kiếm các sự kiện từ Log "suricata" được tạo ra từ IP nguồn 40.80.248.42.
+    - **Giải thích:** Truy vấn tìm kiếm các sự kiện từ Log "suricata" được tạo ra từ IP nguồn 40.80.248.42.
     - **Kết quả:** Phát hiện các alert về tấn công XSS, SQL Injection và đặc biệt là tấn công khai thác lỗ hổng **CVE-2014-6271**.
 
   ![Hình ảnh về alert của Suricata](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/assets/images_phase1/Picture3.png)
@@ -86,15 +86,16 @@ Tiếp theo, chúng ta thu hẹp phạm vi và đào sâu hơn các hoạt độ
 
 3. **What is the web scanner, the attacker used?**
    - **Acunetix**
-   - **Truy vấn:** `index=botsv1 imreallynotbatman.com sourcetype="stream:http"` 
-     - **Kết quả:** Dấu hiệu của công cụ quét lỗ hổng **Acunetix** trong **http_user_agent**.
+   - **Truy vấn:** `index=botsv1 imreallynotbatman.com sourcetype="stream:http"` và kiểm tra trong fields “http_user_agent” chúng ta thấy dấu hiệu của Tool quét lỗ hổng acunetix.
+   - **Kết quả:** Dấu hiệu của công cụ quét lỗ hổng **Acunetix** trong **http_user_agent**.
+   - **Giải thích:** Thông thường fields “user-agent” chứa thông tin các trình duyệt, Tool dò quét tương tác với webserver thông qua các chuỗi giá trị riêng biệt như: tên trình duyệt, phiên bản, mã md5,.. 
 
   ![Hình ảnh về web scanner](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/assets/images_phase1/Picture6.png)
 
 4. **What is the IP address of the server imreallynotbatman.com?**
    - **192.168.250.70**
-   - **Truy vấn:** `index=botsv1 imreallynotbatman.com sourcetype="stream:http" http_user_agent="\";print(md5(acunetix_wvs_security_test));$a=\""` và kiểm tra trong fields “http_user_agent” chúng ta thấy dấu hiệu của Tool quét lỗ hổng acunetix.
-   - **Giải thích:** Thông thường fields “user-agent” chứa thông tin các trình duyệt, Tool dò quét tương tác với webserver thông qua các chuỗi giá trị riêng biệt như: tên trình duyệt, phiên bản, mã md5,.. 
+   - **Truy vấn:** `index=botsv1 imreallynotbatman.com sourcetype="stream:http" http_user_agent="\";print(md5(acunetix_wvs_security_test));$a=\""` và kiểm tra trong fields “dest_ip” chúng ta nhận thấy địa chỉ IP mà attacker muốn dò quét và khai thác lỗ hổng là “192.168.250.70”
+   
 
   ![Hình ảnh về địa chỉ IP server](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/assets/images_phase1/Picture7.png)
 
