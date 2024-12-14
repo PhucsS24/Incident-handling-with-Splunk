@@ -55,7 +55,7 @@ Tiếp theo, chúng ta cần xem xét các dấu hiệu tấn công từ từng 
         - **http_user_agent:** `"Python-urllib/2.7"` – thư viện của Python tự động gửi các HTTP request để thực hiện tấn công brute force.
         - **form_data:** Nhiều thông tin username, password được gửi đi để thực hiện login.
 
-  ![Video về dấu hiệu tấn công từ IP 23.22.63.114]([link-video-ở-đây](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/assets/images_phase1/video%202.gif))
+  ![Video về dấu hiệu tấn công từ IP 23.22.63.114](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/assets/images_phase1/video%202.gif)
 
 ### 4. Kiểm tra dấu hiệu tấn công từ Log IDS "Suricata"
 Tiếp theo, chúng ta thu hẹp phạm vi và đào sâu hơn các hoạt động khai thác lỗ hổng web từ IP **40.80.148.42**.
