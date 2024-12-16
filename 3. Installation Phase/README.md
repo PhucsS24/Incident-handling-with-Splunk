@@ -25,7 +25,7 @@
   - Tìm kiếm tất cả sự kiện traffic HTTP có chứa `.exe` truy cập đến IP webserver `192.168.250.70`.
 - **Kết quả:**
   - Tìm kiếm thông tin trong các trường liên quan đến `filename` ta thấy trong trường `part_filename{}` có chứa hai tên tệp: một tệp thực thi `3791.exe` và một tệp PHP `agent.php`.
-  - _Hình ảnh minh họa tại đây._
+  ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/2.%20Exploitation%20Phase/images/1.png)
 
 ### 2. Kiểm tra các tệp được tải lên có liên quan đến các địa chỉ IP của attacker thực hiện tấn công brute-force không
 
@@ -37,7 +37,7 @@
   - Tìm kiếm tất cả sự kiện traffic HTTP có chứa file `3791.exe` và `agent.php` truy cập đến IP webserver `192.168.250.70`.
 - **Kết quả:**
   - Kiểm tra trong trường `c_ip` chúng ta phát hiện một IP của attacker `40.80.148.42`.
-  - _Hình minh họa tại đây._
+  ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/2.%20Exploitation%20Phase/images/1.png)
 
 ### 3. Xác nhận file `3791.exe` có được thực thi trên webserver chưa
 
@@ -52,7 +52,7 @@
     - `XmlWinEventLog`: chứa các event logs Sysmon.
     - `WinEventLog`: chứa các event logs Windows.
     - `fortigate_utm`: chứa các event logs firewall.
-  - _Hình minh họa tại đây._
+  ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/2.%20Exploitation%20Phase/images/1.png)
 
 #### Kiểm tra với nguồn log `XmlWinEventLog`
 
@@ -65,7 +65,7 @@
   - `EventCode=1`: Là mã sự kiện, giá trị `1` nghĩa là tiến trình mới đã được tạo (file `3791.exe` đã được thực thi).
 - **Kết quả:**
   - Kiểm tra các sự kiện trong trường `CommandLine` ta sẽ thấy các lệnh thực thi, rõ ràng rằng file `3791.exe` đã được thực thi trên webserver.
-  - _Hình ảnh minh họa tại đây._
+  ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/2.%20Exploitation%20Phase/images/1.png)
 
 ---
 
@@ -81,7 +81,7 @@
   - Tìm kiếm sự kiện liên quan đến file `3791.exe` và lệnh thực thi `3791.exe` trong nguồn log `XmlWinEventLog`.
 - **Kết quả:**
   - Kiểm tra trong trường `Hashs` chúng ta thấy xuất hiện mã hash MD5 `MD5=AAE3F5A29935E6ABCC2C2754D12A9AF0`.
-  - _Hình minh họa tại đây._
+  ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/2.%20Exploitation%20Phase/images/1.png)
 
 ### 2. Looking at the logs, which user executed the program 3791.exe on the server?
 - **User:** `NT AUTHORITY\IUSR`
@@ -93,7 +93,7 @@
   - Tìm kiếm các sự kiện liên quan đến user, `3791.exe` và lệnh thực thi `3791.exe` trong nguồn log `XmlWinEventLog`.
 - **Kết quả:**
   - Chúng ta có thể thấy thông tin về user `NT AUTHORITY\IUSR`.
-  - _Hình minh họa tại đây._
+  ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/2.%20Exploitation%20Phase/images/1.png)
 
 ### 3. Search hash on VirusTotal. What other name is associated with this file 3791.exe?
 - **Name:** `ab.exe`
@@ -101,7 +101,7 @@
   - Truy cập trang web VirusTotal ([https://www.virustotal.com/gui/home/upload](https://www.virustotal.com/gui/home/upload)).
   - Tìm kiếm với mã hash MD5 `AAE3F5A29935E6ABCC2C2754D12A9AF0`.
   - Chúng ta có thể thấy một tên khác được liên kết với tệp `3791.exe` là `ab.exe`.
-  - _Hình minh họa tại đây._
+  ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/2.%20Exploitation%20Phase/images/1.png)
 
 ---
 
