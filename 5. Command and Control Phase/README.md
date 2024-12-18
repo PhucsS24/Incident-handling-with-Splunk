@@ -9,7 +9,7 @@
 
 ## II. Các bước thực hiện:
 
-### 1. Tìm kiếm các sự kiện liên quan đến tệp `.jpeg` “poisonivy-is-coming-for-you-batman.jpeg” trong nguồn Log `fortigate_utm`.
+#### 1. Tìm kiếm các sự kiện liên quan đến tệp `.jpeg` “poisonivy-is-coming-for-you-batman.jpeg” trong nguồn Log `fortigate_utm`.
    - **Truy vấn:**
      ```spl
      index=botsv1 sourcetype=fortigate_utm "poisonivy-is-coming-for-you-batman.jpeg"
@@ -20,7 +20,7 @@
      - Chúng ta thấy trong trường hostname có chứa malicious domain và port của attacker.
    ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/5.%20Command%20and%20Control%20Phase/images/1.png)
 
-### 2. Tiếp tục truy vấn với trường hostname chứa malicious domain:
+#### 2. Tiếp tục truy vấn với trường hostname chứa malicious domain:
    - **Truy vấn:**
      ```spl
      index=botsv1 sourcetype=fortigate_utm "poisonivy-is-coming-for-you-batman.jpeg" hostname="prankglassinebracket.jumpingcrab.com:1337"
@@ -33,7 +33,7 @@
 
      ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/5.%20Command%20and%20Control%20Phase/images/3.png)
 
-### 3. Xác minh malicious domain “prankglassinebracket.jumpingcrab.com” đang trỏ đến IP `23.22.63.114` trong nguồn Log `stream:http`.
+#### 3. Xác minh malicious domain “prankglassinebracket.jumpingcrab.com” đang trỏ đến IP `23.22.63.114` trong nguồn Log `stream:http`.
    - **Truy vấn:**
      ```spl
      index=botsv1 sourcetype=stream:http dest_ip=23.22.63.114 "poisonivy-is-coming-for-you-batman.jpeg" src_ip=192.168.250.70
