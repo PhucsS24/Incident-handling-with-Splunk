@@ -16,20 +16,20 @@
     - `39eecefa9a13293a93bb20036eaf1f5e`
     - `aae3f5a29935e6abcc2c2754d12a9af0`
     - `c99131e0169171935c5ac32615ed6261`
-    ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/7.%20Delivery%20Phase/images/1.png)
-
   - Trong đó, hash MD5 `c99131e0169171935c5ac32615ed6261` được các Antivirus phát hiện là một malware.
-    ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/7.%20Delivery%20Phase/images/2.png)
+    ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/7.%20Delivery%20Phase/images/1.png)
 
 ### 2. Kiểm tra hash MD5 `c99131e0169171935c5ac32615ed6261` với ThreatMiner
 - **Kết quả**:
   - Phát hiện một file thực thi: `MirandaTateScreensaver.scr.exe`
   - File dành cho Windows, kiến trúc Intel 80386, kích thước file ~494 KB.
-    ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/7.%20Delivery%20Phase/images/3.png)
+    ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/7.%20Delivery%20Phase/images/2.png)
 
 ### 3. Kiểm tra hash MD5 `c99131e0169171935c5ac32615ed6261` với VirusTotal
 - **Kết quả**:
   - Hash được gán nhãn: `trojan.redsip/sanwaicrypt`.
+    ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/7.%20Delivery%20Phase/images/3.png)
+    
   - Phần "Relations" cho thấy địa chỉ IP `23.22.63.114` liên kết với malware này.
     ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/7.%20Delivery%20Phase/images/4.png)
 
