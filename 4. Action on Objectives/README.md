@@ -87,9 +87,9 @@
 ## IV. Kết luận
 - Sau khi hoàn thành gia đoạn Action on Objective chúng ta đã biết được cách mà attacker làm hỏng trang web.
   - Tập tin làm hỏng trang web imreallynotbatman.com là:
-    - poisonivy-is-coming-for-you-batman.jpeg
+    - `poisonivy-is-coming-for-you-batman.jpeg`
   - Malicious domain mà attacker tải tệp .jpeg là:
-    - prankglassinebracket.jumpingcrab.com
+    - `prankglassinebracket.jumpingcrab.com`
   - Địa chỉ IP của Malicious domain là:
-    - 23.22.63.114
+    - `23.22.63.114`
 
