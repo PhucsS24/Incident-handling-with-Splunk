@@ -21,6 +21,15 @@
 ## B. Nhiệm vụ:
 1. Điều tra cuộc tấn công để:
    - Tìm ra **nguyên nhân gốc rễ**.
-   - Xác định các **hành động mà kẻ tấn công đã thực hiện trong hệ thống**.
-2. **Index:** `botsv1`
-3. **Mục tiêu bị tấn công:** Trang web có domain: **`imreallynotbatman.com`**
+   - Xác định các **hành động mà kẻ tấn công đã thực hiện trong hệ thống theo 7 giai đoạn của Cyber kill Chain Model**.
+     - Reconnaissance
+     - Weaponization
+     - Delivery
+     - Exploitation
+     - Installation
+     - Command & Control
+     - Actions on Objectives
+      
+2. Các thông tin ban đầu:
+  - **Index:** `botsv1`
+  - **Mục tiêu bị tấn công:** Trang web có domain: **`imreallynotbatman.com`**
