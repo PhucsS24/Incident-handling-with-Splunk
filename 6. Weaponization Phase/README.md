@@ -71,7 +71,7 @@
      - Sử dụng tool `WhoXY` (https://www.whoxy.com), tìm kiếm với domain `po1s0nvy.com`.
      - Phát hiện domain `po1s0nvy.com` đã hết hạn và chưa được đăng ký.
      - Trong các records, thấy domain `po1s0nvy.com` từng có email `lillian@po1s0n1vy.com`.
-       ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/5.%20Command%20and%20Control%20Phase/images/cau2.png)
+      ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/6.%20Weaponization%20Phase/images/cau2.png)
 
 ## IV. Kết luận:
 - Sau khi hoàn thành giai đoạn Weaponization, chúng ta đã thu thập được các thông tin liên quan đến địa chỉ IP `23.22.63.114` và malicious domain `prankglassinebracket.jumpingcrab.com`.
