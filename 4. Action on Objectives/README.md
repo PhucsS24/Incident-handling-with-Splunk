@@ -70,7 +70,7 @@
 
   ![Hình ảnh](https://github.com/PhucsS24/Incident-handling-with-Splunk/blob/main/4.%20Action%20on%20Objectives/images/cau1.png)
  
-- Fortigate Firewall 'fortigate_utm' detected SQL attempt from the attacker's IP 40.80.148.42. What is the name of the rule that was triggered during the SQL Injection attempt?
+### 2. Fortigate Firewall 'fortigate_utm' detected SQL attempt from the attacker's IP 40.80.148.42. What is the name of the rule that was triggered during the SQL Injection attempt?
   - HTTP.URI.SQL.Injection
   - Truy vấn:
     ```spl
